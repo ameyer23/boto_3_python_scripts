@@ -18,13 +18,14 @@ def list_object_keys(client, bucket, prefix=''):
     return keys
 
 
-s3 = boto3.client('s3')
+if __name__ == '__main__':
+    s3 = boto3.client('s3')
 
-response = list_object_keys(s3, 'ameyer-boto3-051423', 'folder/')
-print(response)
-
-response = filter_objects_on_extension(s3, 'ameyer-boto3-051423', '/')
-print(response)
+    response = list_object_keys(s3, 'ameyer-boto3-051423', 'folder/')
+    print(response)
+    
+    response = filter_objects_on_extension(s3, 'ameyer-boto3-051423', '/')
+    print(response)
 
 
 '''
