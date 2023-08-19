@@ -1,3 +1,4 @@
+
 import boto3
 
 def filter_objects_on_extension(client, bucket, extension):
@@ -76,6 +77,7 @@ response = s3.list_objects_v2(Bucket='ameyer-boto3-051423')
 #shows forlder and allll its contents
 for content in response['Contents']:
     print(content['Key'])
+
 '''
 
 
