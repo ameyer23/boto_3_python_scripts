@@ -14,4 +14,3 @@ with open('test_text.txt', 'rb') as f: #read in bytes
 #Body will need to be loaded in memory, so use with open
 #ContentType is the MIME type, determined by file extension
 
-
