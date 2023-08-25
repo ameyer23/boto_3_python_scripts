@@ -1,0 +1,38 @@
+"""
+Modify created instance to launch an Apache web server. This is all about
+user data and using it to spin up a web server on http.
+
+We will use the create_instance script and add a function 
+
+"""
+import boto3
+
+def create_instance(client, ami_id, sg_id, key_pair_name, user_data=None)
+    response = client.run_instances(
+        ImageId=ami_id,
+        InstanceType='t2.micro',
+        KeyName=key_pair_name,
+        MaxCount=1,
+        MinCount=1,
+        SecurityGroupIds=[
+            sg_id,
+        ],
+        UserData = user_data
+    )
+    
+    print(response['Instances'][0]['InstanceId'])
+
+ami_id = 'ami-0d382d38d7e58c250'
+key_pair_name = 'key_from_boto3'
+sg_id = 'sg-029feb50bd6aec827'
+user_data = '''#!/bin/bash
+    apt update -y
+    apt-get install apache2
+    systemctl start apache2
+    systemctl enable apache2'''
+
+ec2= boto3.client('ec2')
+create_instance(create_instance(ec2, ami_id, sg_id, key_pair_name, user_data)
+
+
+    
