@@ -23,8 +23,14 @@ response = ec2.describe_instances()
 for reservation in response['Reservations']:
     for instance in reservation['Instances']:
         print(instance['InstanceId'], instance['InstanceType'], 
-        instance['ImageId'], instance['VpcId'], instance['SubnetId'],
+        instance['ImageId'],
         instance['State']['Name'])
+        
+        if 'VpcId' in instance:
+            instance['VpcId']
+        
+        if 'SubnetId' in instance:
+            instance['SubnetId']
         
         if 'Tags' in instance: #to avoid key error
             for tag in instance['Tags']:
